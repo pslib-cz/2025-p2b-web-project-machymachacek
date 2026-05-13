@@ -4,31 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Burger Bistro Liberec</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ── RESET & VARIABLES ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --red:   #d90429;
-      --gray:  #8d99ae;
-      --dark:  #2b2d42;
-      --bg:    #EDF2F4;
+      --black: #111111;
+      --dark: #1a1a1a;
+      --charcoal: #2b2b2b;
+      --red: #d9302f;
+      --red-dark: #b52120;
+      --cream: #f5efe6;
+      --tan: #e8d9c5;
+      --text: #f0ece6;
+      --muted: #a09080;
       --white: #ffffff;
-      --nav-h: 70px;
-      --font-display: 'Bebas Neue', cursive;
-      --font-body:    'DM Sans', sans-serif;
-      --transition: .3s ease;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--dark);
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--text);
       overflow-x: hidden;
     }
 
@@ -36,1341 +34,894 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      background: var(--dark);
+      z-index: 1000;
+      height: 68px;
+      background: rgba(17,17,17,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--red);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 5%;
-      z-index: 1000;
-      box-shadow: 0 2px 20px rgba(0,0,0,.4);
+      padding: 0 48px;
     }
 
     .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
       letter-spacing: 2px;
-      text-decoration: none;
+      line-height: 1;
+      color: var(--white);
     }
-
     .nav-logo span { color: var(--red); }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      align-items: center;
+      gap: 8px;
       list-style: none;
     }
-
     .nav-links a {
-      color: var(--gray);
       text-decoration: none;
-      font-size: .85rem;
-      font-weight: 500;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      transition: color var(--transition);
-      position: relative;
+      padding: 6px 14px;
+      border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
     }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--red);
-      transition: width var(--transition);
-    }
-
-    .nav-links a:hover { color: var(--white); }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta {
+    .btn-rezervace {
       background: var(--red);
       color: var(--white) !important;
-      padding: .5rem 1.2rem;
-      border-radius: 2px;
+      border-radius: 4px !important;
+      padding: 8px 20px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1px;
+      transition: background 0.2s !important;
     }
-
-    .nav-cta:hover { background: #b80222 !important; }
-    .nav-cta::after { display: none !important; }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--white);
-      transition: var(--transition);
-    }
+    .btn-rezervace:hover { background: var(--red-dark) !important; }
 
     /* ── HERO ── */
     #domov {
       min-height: 100vh;
-      padding-top: var(--nav-h);
+      padding-top: 68px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      background: var(--dark);
-      position: relative;
-      overflow: hidden;
+      background: var(--black);
     }
 
-    .hero-content {
+    .hero-left {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 6rem 5% 6rem 8%;
-      position: relative;
-      z-index: 2;
+      padding: 80px 60px 80px 80px;
     }
 
-    .hero-tag {
-      display: inline-block;
-      background: var(--red);
-      color: var(--white);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: .4rem 1rem;
-      margin-bottom: 1.5rem;
-      width: fit-content;
-    }
-
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(4rem, 7vw, 7rem);
-      line-height: .95;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-      letter-spacing: 2px;
-    }
-
-    .hero-title .accent { color: var(--red); display: block; }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--gray);
-      max-width: 420px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-contacts {
-      display: flex;
-      flex-direction: column;
-      gap: .8rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-      color: var(--white);
-      font-size: 1rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color var(--transition);
-    }
-
-    .contact-item:hover { color: var(--red); }
-
-    .contact-icon {
-      width: 36px; height: 36px;
-      background: var(--red);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: .85rem 2rem;
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: .85rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all var(--transition);
-    }
-
-    .btn-primary { background: var(--red); color: var(--white); }
-    .btn-primary:hover { background: #b80222; transform: translateY(-2px); }
-    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--gray); }
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
-
-    .hero-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-img-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 60vh;
-      background: linear-gradient(135deg, var(--red) 0%, #7a0114 50%, #1a1c2e 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-img-placeholder::before {
-      content: '';
-      position: absolute;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.04);
-      top: -100px; right: -100px;
-    }
-
-    .hero-img-placeholder::after {
-      content: '';
-      position: absolute;
-      width: 250px; height: 250px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.06);
-      bottom: -60px; left: -60px;
-    }
-
-    .placeholder-label {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      letter-spacing: 3px;
-      color: rgba(255,255,255,.5);
-      text-align: center;
-      z-index: 1;
-    }
-
-    .placeholder-icon { font-size: 4rem; z-index: 1; }
-
-    /* ── SECTION BASE ── */
-    section { padding: 6rem 5%; }
-    .section-label {
-      font-size: .7rem;
+    .hero-eyebrow {
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--red);
-      margin-bottom: .8rem;
+      margin-bottom: 20px;
     }
 
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      color: var(--dark);
-      line-height: 1;
-      letter-spacing: 1px;
-      margin-bottom: 1rem;
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 6vw, 6rem);
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+    .hero-title em {
+      color: var(--red);
+      font-style: normal;
     }
 
-    .section-title.light { color: var(--white); }
-
-    .section-sub {
-      color: var(--gray);
+    .hero-sub {
       font-size: 1rem;
-      max-width: 520px;
+      color: var(--muted);
       line-height: 1.7;
-      margin-bottom: 3rem;
+      max-width: 440px;
+      margin-bottom: 44px;
     }
 
-    /* ── BURGERY ── */
-    #burgery {
-      background: var(--bg);
-    }
-
-    .burger-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .burger-card {
-      background: var(--white);
-      border-radius: 4px;
-      overflow: hidden;
-      transition: transform var(--transition), box-shadow var(--transition);
-      position: relative;
-    }
-
-    .burger-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(43,45,66,.15);
-    }
-
-    .burger-card:hover .burger-img-ph { filter: brightness(1.05); }
-
-    .burger-img-ph {
-      height: 220px;
+    .hero-btns {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      transition: filter var(--transition);
-    }
-
-    .burger-img-ph.red-ph   { background: linear-gradient(145deg, #d90429, #8a021a); }
-    .burger-img-ph.gray-ph  { background: linear-gradient(145deg, #8d99ae, #5a6375); }
-    .burger-img-ph.dark-ph  { background: linear-gradient(145deg, #2b2d42, #1a1c2e); }
-
-    .burger-img-ph .ph-icon { font-size: 3rem; }
-    .burger-img-ph .ph-text { font-family: var(--font-display); letter-spacing: 2px; color: rgba(255,255,255,.6); font-size: .9rem; }
-
-    .burger-badge {
-      position: absolute;
-      top: 1rem; right: 1rem;
-      background: var(--red);
-      color: var(--white);
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: .3rem .7rem;
-      border-radius: 2px;
-    }
-
-    .burger-body { padding: 1.5rem; }
-
-    .burger-name {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-      color: var(--dark);
-      margin-bottom: .5rem;
-    }
-
-    .burger-desc {
-      font-size: .9rem;
-      color: var(--gray);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .burger-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
-      gap: .5rem;
     }
-
-    .burger-allergens {
-      font-size: .75rem;
-      color: var(--gray);
-      font-weight: 500;
-    }
-
-    .burger-allergens span { color: var(--dark); font-weight: 700; }
-
-    .burger-price {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      color: var(--red);
-      letter-spacing: 1px;
-    }
-
-    /* ── CENÍK ── */
-    #cenik {
-      background: var(--dark);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #cenik::before {
-      content: 'MENU';
-      position: absolute;
-      right: -2rem; top: 50%;
-      transform: translateY(-50%) rotate(90deg);
-      font-family: var(--font-display);
-      font-size: 12rem;
-      color: rgba(255,255,255,.03);
-      pointer-events: none;
-      letter-spacing: 5px;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .menu-category-title {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--red);
-      letter-spacing: 2px;
-      margin-bottom: 1.2rem;
-      padding-bottom: .6rem;
-      border-bottom: 1px solid rgba(141,153,174,.2);
-    }
-
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      padding: .7rem 0;
-      border-bottom: 1px solid rgba(141,153,174,.1);
-      transition: background var(--transition);
-      padding: .7rem .5rem;
-      margin: 0 -.5rem;
-      border-radius: 2px;
-    }
-
-    .menu-item:hover { background: rgba(255,255,255,.03); }
-
-    .menu-item.featured {
-      background: rgba(217,4,41,.08);
-      border: 1px solid rgba(217,4,41,.25);
-      border-radius: 4px;
-      padding: .8rem 1rem;
-      margin: .5rem -.5rem;
-    }
-
-    .menu-item-left { flex: 1; }
-
-    .item-name {
-      font-weight: 600;
-      color: var(--white);
-      font-size: .95rem;
-      margin-bottom: .2rem;
-    }
-
-    .item-desc { font-size: .8rem; color: var(--gray); }
-
-    .item-price {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      color: var(--white);
-      white-space: nowrap;
-      letter-spacing: .5px;
-    }
-
-    .featured .item-name { color: var(--red); }
-    .featured .item-price { color: var(--red); }
-
-    .popular-badge {
-      display: inline-block;
+    .btn-primary {
       background: var(--red);
       color: var(--white);
-      font-size: .6rem;
+      border: none;
+      padding: 14px 32px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      padding: .2rem .6rem;
-      border-radius: 2px;
-      margin-left: .5rem;
-      vertical-align: middle;
-    }
-
-    /* ── O NÁS ── */
-    #o-nas {
-      background: var(--bg);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-img-ph {
-      aspect-ratio: 4/3;
-      background: linear-gradient(135deg, var(--gray) 0%, var(--dark) 100%);
+      cursor: pointer;
       border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .8rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid rgba(255,255,255,0.2);
+      padding: 14px 32px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--red); transform: translateY(-2px); }
+
+    .hero-img {
+      background: var(--charcoal);
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
-    .about-img-ph::after {
+    .hero-img-inner {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.08);
+    }
+    .hero-img-inner::before {
       content: '';
       position: absolute;
       inset: 0;
       background: repeating-linear-gradient(
-        45deg,
+        -45deg,
         transparent,
-        transparent 20px,
-        rgba(255,255,255,.02) 20px,
-        rgba(255,255,255,.02) 40px
+        transparent 10px,
+        rgba(217,48,47,0.03) 10px,
+        rgba(217,48,47,0.03) 20px
       );
     }
 
-    .about-img-ph .ph-icon { font-size: 4rem; z-index: 1; }
-    .about-img-ph .ph-text {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      letter-spacing: 3px;
-      color: rgba(255,255,255,.5);
-      z-index: 1;
+    /* ── SECTIONS COMMON ── */
+    section { scroll-margin-top: 68px; }
+
+    .section-header {
+      text-align: center;
+      padding: 80px 48px 20px;
+    }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      color: var(--white);
+      letter-spacing: 2px;
     }
 
-    .about-content {}
+    /* ── BURGERY ── */
+    #burgery {
+      background: var(--dark);
+      padding-bottom: 80px;
+    }
 
-    .about-stats {
+    .burgery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 48px 64px;
+    }
+
+    .burger-card {
+      background: var(--charcoal);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .burger-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(217,48,47,0.2);
+    }
+
+    .burger-img-ph {
+      height: 200px;
+      background: linear-gradient(160deg, #333 0%, #222 100%);
       display: flex;
-      gap: 2rem;
-      margin: 2rem 0;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(255,255,255,0.06);
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
     }
 
+    .burger-body { padding: 20px; }
+    .burger-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .burger-ing {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CENÍK ── */
+    #ceník {
+      background: var(--black);
+      padding-bottom: 80px;
+    }
+
+    .cenik-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+      padding: 48px 80px;
+    }
+
+    .cenik-group { margin-bottom: 48px; }
+
+    .cenik-group-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(217,48,47,0.3);
+      margin-bottom: 8px;
+    }
+
+    .cenik-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.92rem;
+    }
+    .cenik-item:last-child { border-bottom: none; }
+    .cenik-name { color: var(--text); }
+    .cenik-price {
+      font-weight: 700;
+      color: var(--red);
+      font-size: 0.95rem;
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    /* ── O NÁS ── */
+    #o-nas {
+      background: var(--dark);
+      padding: 100px 0;
+    }
+
+    .onas-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      padding: 0 80px;
+      align-items: center;
+    }
+
+    .onas-img {
+      background: var(--charcoal);
+      border-radius: 6px;
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .onas-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--red);
+    }
+
+    .onas-content {}
+    .onas-tag {
+      display: inline-block;
+      background: rgba(217,48,47,0.15);
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+    .onas-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 28px;
+    }
+    .onas-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .onas-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 36px;
+    }
     .stat {
       text-align: center;
     }
-
     .stat-num {
-      font-family: var(--font-display);
-      font-size: 3rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
       color: var(--red);
-      line-height: 1;
     }
-
     .stat-label {
-      font-size: .75rem;
-      color: var(--gray);
-      font-weight: 500;
-      letter-spacing: 2px;
+      font-size: 0.75rem;
+      color: var(--muted);
       text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 2px;
     }
 
-    .about-text {
-      color: var(--gray);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── TERMÍNY / OTEVÍRACÍ DOBY ── */
+    /* ── TERMÍNY ── */
     #terminy {
-      background: var(--red);
-      padding: 4rem 5%;
+      background: var(--black);
+      padding: 80px 0;
     }
 
-    .hours-grid {
+    .terminy-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin: 48px 80px 0;
     }
 
-    .hours-card {
-      background: rgba(0,0,0,.15);
-      border-radius: 4px;
-      padding: 1.5rem;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,.15);
+    .termin-card {
+      background: var(--charcoal);
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 3px solid transparent;
+      transition: border-color 0.2s;
     }
+    .termin-card:hover { border-color: var(--red); }
 
-    .hours-day {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--white);
-      letter-spacing: 2px;
-      margin-bottom: .5rem;
-    }
-
-    .hours-time {
-      font-size: 1.5rem;
+    .termin-day {
+      font-size: 0.75rem;
       font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .termin-hours {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
       color: var(--white);
     }
-
-    .hours-closed {
-      font-size: 1rem;
-      color: rgba(255,255,255,.5);
-      font-style: italic;
+    .termin-closed {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
     }
 
     /* ── MAPA ── */
-    #mapa {
+    #kontakt {
       background: var(--dark);
       padding: 0;
     }
 
-    .map-wrapper {
+    .kontakt-inner {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 220px 1fr;
+      min-height: 480px;
     }
 
-    .map-info {
-      padding: 4rem 3rem;
+    .kontakt-info {
+      background: var(--black);
+      padding: 56px 40px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      gap: 28px;
+      border-right: 2px solid var(--red);
     }
 
-    .map-address {
-      margin-top: 1.5rem;
+    .kontakt-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 4px;
     }
 
-    .address-line {
+    .kontakt-item {
       display: flex;
-      align-items: flex-start;
-      gap: .8rem;
-      margin-bottom: 1.2rem;
+      flex-direction: column;
+      gap: 4px;
     }
-
-    .address-icon {
-      width: 36px; height: 36px;
-      background: var(--red);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .9rem;
-      flex-shrink: 0;
-      margin-top: .1rem;
+    .kontakt-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
     }
-
-    .address-text {
-      color: var(--gray);
-      font-size: .95rem;
-      line-height: 1.5;
-    }
-
-    .address-text strong { color: var(--white); display: block; }
-
-    .map-iframe-wrapper {
-      height: 480px;
-      position: relative;
-    }
-
-    .map-iframe-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      filter: grayscale(30%) contrast(1.05);
-    }
-
-    /* ── KONTAKT ── */
-    #kontakt {
-      background: var(--bg);
-    }
-
-    .kontakt-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2rem;
-    }
-
-    .kontakt-card {
-      background: var(--white);
-      border-radius: 4px;
-      padding: 2rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.2rem;
-      transition: box-shadow var(--transition);
-    }
-
-    .kontakt-card:hover { box-shadow: 0 8px 30px rgba(43,45,66,.1); }
-
-    .k-icon {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-
-    .k-icon.red { background: var(--red); }
-    .k-icon.dark { background: var(--dark); }
-    .k-icon.gray { background: var(--gray); }
-
-    .k-content h3 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-      margin-bottom: .3rem;
-    }
-
-    .k-content p, .k-content a {
-      color: var(--gray);
-      font-size: .9rem;
+    .kontakt-value {
+      font-size: 0.9rem;
+      color: var(--text);
       line-height: 1.6;
-      text-decoration: none;
-      transition: color var(--transition);
     }
+    .kontakt-value a { color: var(--text); text-decoration: none; }
+    .kontakt-value a:hover { color: var(--red); }
 
-    .k-content a:hover { color: var(--red); }
-
-    .kontakt-form-link {
-      grid-column: 1 / -1;
-      background: var(--dark);
-      border-radius: 4px;
-      padding: 2.5rem;
+    .mapa-ph {
+      background: var(--charcoal);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.07);
+      position: relative;
     }
-
-    .kontakt-form-link h3 {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      color: var(--white);
-      letter-spacing: 1px;
+    .mapa-ph::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(17,17,17,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17,17,17,0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
-
-    .kontakt-form-link p { color: var(--gray); font-size: .9rem; margin-top: .3rem; }
 
     /* ── FOOTER ── */
     footer {
-      background: #1a1c2e;
-      padding: 3rem 5%;
+      background: var(--black);
+      border-top: 2px solid var(--charcoal);
+      padding: 32px 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      min-height: 80px;
     }
 
     .footer-logo {
-      font-family: var(--font-display);
+      font-family: 'Bebas Neue', sans-serif;
       font-size: 1.4rem;
-      color: var(--white);
       letter-spacing: 2px;
+      color: var(--white);
     }
-
     .footer-logo span { color: var(--red); }
 
-    .footer-copy { color: var(--gray); font-size: .8rem; }
-
-    .footer-social {
-      display: flex;
-      gap: .8rem;
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
     }
 
-    .social-btn {
-      width: 36px; height: 36px;
-      background: rgba(255,255,255,.06);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gray);
-      text-decoration: none;
-      font-size: .9rem;
-      transition: all var(--transition);
-    }
-
-    .social-btn:hover { background: var(--red); color: var(--white); }
-
-    /* ── SCROLL TO TOP ── */
-    .scroll-top {
-      position: fixed;
-      bottom: 2rem; right: 2rem;
-      width: 44px; height: 44px;
+    .btn-scroll-top {
+      width: 42px;
+      height: 42px;
       background: var(--red);
       border: none;
-      border-radius: 50%;
-      color: var(--white);
-      font-size: 1.2rem;
+      border-radius: 4px;
       cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0;
-      transition: opacity var(--transition), transform var(--transition);
-      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+    .btn-scroll-top:hover { background: var(--red-dark); transform: translateY(-3px); }
+    .btn-scroll-top svg { fill: white; width: 18px; height: 18px; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+      opacity: 0.4;
+      margin: 0;
     }
 
-    .scroll-top.visible { opacity: 1; }
-    .scroll-top:hover { transform: translateY(-4px); }
+    /* ── HAMBURGER BUTTON ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 1100;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      #domov { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .hero-content { padding: 4rem 5%; }
 
-      .menu-grid { grid-template-columns: 1fr; }
-      #o-nas { grid-template-columns: 1fr; padding: 4rem 5%; }
-      .about-img-ph { display: none; }
-
-      .map-wrapper { grid-template-columns: 1fr; }
-      .map-iframe-wrapper { height: 320px; }
-
-      .kontakt-grid { grid-template-columns: 1fr; }
+    @media (max-width: 1024px) {
+      nav { padding: 0 28px; }
+      .nav-links a { font-size: 0.78rem; padding: 6px 10px; }
+      .hero-left { padding: 60px 40px; }
+      .burgery-grid { grid-template-columns: repeat(3, 1fr); padding: 40px 28px; }
+      .cenik-grid { padding: 40px 40px; }
+      .onas-inner { padding: 0 40px; gap: 48px; }
+      .terminy-grid { margin: 40px 28px 0; }
+      .kontakt-inner { grid-template-columns: 200px 1fr; }
+      footer { padding: 28px 40px; }
     }
 
-    @media (max-width: 700px) {
-      nav { padding: 0 4%; }
-      .nav-links { display: none; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--dark); padding: 1.5rem; gap: 1.2rem; }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; height: 60px; }
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: rgba(17,17,17,0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px 20px 24px;
+        border-bottom: 2px solid var(--red);
+        gap: 4px;
+        z-index: 999;
+      }
       .nav-links.open { display: flex; }
-      .hamburger { display: flex; }
-      .nav-links .nav-cta { width: fit-content; }
+      .nav-links a { padding: 12px 16px; font-size: 0.9rem; border-radius: 4px; }
+      .btn-rezervace { text-align: center; margin-top: 8px; }
 
-      .hero-title { font-size: 3.5rem; }
-      .about-stats { flex-wrap: wrap; }
-      .kontakt-form-link { flex-direction: column; }
+      #domov { grid-template-columns: 1fr; min-height: auto; padding-top: 60px; }
+      .hero-left { padding: 52px 24px 40px; }
+      .hero-img { display: none; }
+
+      section { scroll-margin-top: 60px; }
+      .section-header { padding: 52px 24px 16px; }
+
+      .burgery-grid { grid-template-columns: repeat(2, 1fr); padding: 28px 16px; gap: 16px; }
+
+      .cenik-grid { grid-template-columns: 1fr; padding: 28px 24px; }
+
+      .onas-inner { grid-template-columns: 1fr; padding: 0 24px; gap: 36px; }
+      .onas-img { min-height: 260px; }
+      .onas-stats { gap: 24px; }
+
+      .terminy-grid { grid-template-columns: repeat(2, 1fr); margin: 32px 16px 0; gap: 2px; }
+
+      .kontakt-inner { grid-template-columns: 1fr; }
+      .kontakt-info { padding: 40px 24px; border-right: none; border-bottom: 2px solid var(--red); }
+      .mapa-ph { min-height: 300px; }
+
+      footer { padding: 24px 20px; flex-wrap: wrap; gap: 12px; }
+      .footer-copy { width: 100%; text-align: left; order: 3; }
+      .btn-scroll-top { margin-left: auto; }
     }
 
-    /* ── ANIMATION ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @media (max-width: 480px) {
+      .hero-left { padding: 40px 20px 36px; }
+      .hero-sub { font-size: 0.92rem; }
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; }
 
-    .hero-tag    { animation: fadeUp .6s .2s both; }
-    .hero-title  { animation: fadeUp .6s .35s both; }
-    .hero-desc   { animation: fadeUp .6s .5s both; }
-    .hero-contacts { animation: fadeUp .6s .65s both; }
-    .hero-btns   { animation: fadeUp .6s .8s both; }
+      .burgery-grid { grid-template-columns: 1fr; padding: 24px 16px; }
+      .terminy-grid { grid-template-columns: 1fr; margin: 24px 16px 0; }
+      .cenik-grid { padding: 24px 16px; }
+      .onas-inner { padding: 0 16px; }
+      footer { padding: 20px 16px; }
+    }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
-  <a href="#domov" class="nav-logo">BURGER<span>BISTRO</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#domov">Domů</a></li>
-    <li><a href="#burgery">Burgery</a></li>
-    <li><a href="#cenik">Ceník</a></li>
-    <li><a href="#o-nas">O nás</a></li>
-    <li><a href="#terminy">Termíny</a></li>
-    <li><a href="#mapa">Mapa</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
-    <li><a href="formular.html" class="nav-cta">Rezervace</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <div class="nav-logo">Burger <span>Bistro</span> Liberec</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu">
     <span></span><span></span><span></span>
   </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#domov">Domov</a></li>
+    <li><a href="#burgery">Burgery</a></li>
+    <li><a href="#ceník">Ceník</a></li>
+    <li><a href="#o-nas">O nás</a></li>
+    <li><a href="#terminy">Termíny</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#" class="btn-rezervace">Rezervace</a></li>
+  </ul>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- DOMOV -->
 <section id="domov">
-  <div class="hero-content">
-    <div class="hero-tag">🍔 Liberec · Otevřeno každý den</div>
-    <h1 class="hero-title">
-      BURGER
-      <span class="accent">BISTRO</span>
-      LIBEREC
-    </h1>
-    <p class="hero-desc">
-      Dobré a kvalitní burgery z čerstvých surovin. Ručně formované placky,
-      prémiové housky a originální omáčky — v srdci Liberce.
-    </p>
-    <div class="hero-contacts">
-      <a href="tel:+420777123456" class="contact-item">
-        <div class="contact-icon">📞</div>
-        +420 777 123 456
-      </a>
-      <a href="mailto:info@burgerbistroliberec.cz" class="contact-item">
-        <div class="contact-icon">✉️</div>
-        info@burgerbistroliberec.cz
-      </a>
-    </div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Burger Bistro Liberec</p>
+    <h1 class="hero-title">Poctivé<br>burgery<br><em>od srdce</em></h1>
+    <p class="hero-sub">Dobré a kvalitní burgery z čerstvých surovin.</p>
     <div class="hero-btns">
-      <a href="#burgery" class="btn btn-primary">Prohlédnout menu</a>
-      <a href="#mapa" class="btn btn-outline">Jak nás najít</a>
+      <a href="#burgery" class="btn-primary">Prohlédnout menu</a>
+      <a href="#o-nas" class="btn-secondary">O nás</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-img-placeholder">
-      <div class="placeholder-icon">🍔</div>
-      <div class="placeholder-label">HERO FOTO BURGERU</div>
-    </div>
+  <div class="hero-img">
+    <div class="hero-img-inner">FOTO BURGERY</div>
   </div>
 </section>
 
-<!-- ── BURGERY ── -->
+<div class="divider"></div>
+
+<!-- BURGERY -->
 <section id="burgery">
-  <p class="section-label">Naše speciality</p>
-  <h2 class="section-title">Podpis<br>burgery</h2>
-  <p class="section-sub">Každý burger je tvořen s láskou z lokálních surovin. Vyberte si svůj favorit.</p>
+  <div class="section-header">
+    <p class="section-eyebrow">Naše speciality</p>
+    <h2 class="section-title">Burgery</h2>
+  </div>
 
-  <div class="burger-grid">
+  <div class="burgery-grid">
 
     <div class="burger-card">
-      <div class="burger-img-ph red-ph">
-        <div class="ph-icon">🍔</div>
-        <div class="ph-text">FOTO BURGERU</div>
-      </div>
-      <div class="burger-badge">Bestseller</div>
+      <div class="burger-img-ph">FOTO</div>
       <div class="burger-body">
-        <div class="burger-name">Classic Bistro</div>
-        <p class="burger-desc">
-          200 g hovězí placka, cheddar, karamelizovaná cibulka, ledový salát,
-          rajče, domácí BBQ omáčka v briošce.
-        </p>
-        <div class="burger-info">
-          <div class="burger-allergens">Alergeny: <span>1, 3, 7</span></div>
-          <div class="burger-price">189 Kč</div>
-        </div>
+        <div class="burger-name">Klasický burger</div>
+        <div class="burger-ing">Hovězí patty 180g, ledový salát, rajče, červená cibule, hořčice, ketchup</div>
       </div>
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph gray-ph">
-        <div class="ph-icon">🌶️</div>
-        <div class="ph-text">FOTO BURGERU</div>
-      </div>
+      <div class="burger-img-ph">FOTO</div>
       <div class="burger-body">
-        <div class="burger-name">Smoky Devil</div>
-        <p class="burger-desc">
-          200 g hovězí placka, jalapeños, slanina, smoked čedar, chipotle mayo,
-          červená cibule, briošková houska.
-        </p>
-        <div class="burger-info">
-          <div class="burger-allergens">Alergeny: <span>1, 3, 6, 7</span></div>
-          <div class="burger-price">215 Kč</div>
-        </div>
+        <div class="burger-name">Sýrový burger</div>
+        <div class="burger-ing">Hovězí patty 180g, dvojitý cheddar, karamelizovaná cibule, domácí majonéza</div>
       </div>
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph dark-ph">
-        <div class="ph-icon">🌿</div>
-        <div class="ph-text">FOTO BURGERU</div>
-      </div>
+      <div class="burger-img-ph">FOTO</div>
       <div class="burger-body">
-        <div class="burger-name">Green Garden</div>
-        <p class="burger-desc">
-          Rostlinná placka, avokádo, rukolový salát, rajče, červená řepa,
-          tahini omáčka, celozrnná houska.
-        </p>
-        <div class="burger-info">
-          <div class="burger-allergens">Alergeny: <span>1, 11</span></div>
-          <div class="burger-price">195 Kč</div>
-        </div>
+        <div class="burger-name">Barbecue burger</div>
+        <div class="burger-ing">Hovězí patty 200g, slanina, cibulové kroužky, BBQ omáčka, cheddar</div>
       </div>
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph red-ph" style="background: linear-gradient(145deg, #2b2d42, #8d99ae);">
-        <div class="ph-icon">🧀</div>
-        <div class="ph-text">FOTO BURGERU</div>
-      </div>
+      <div class="burger-img-ph">FOTO</div>
       <div class="burger-body">
-        <div class="burger-name">Double Cheese</div>
-        <p class="burger-desc">
-          2× 150 g hovězí placka, 2× cheddar, okurka, hořčice,
-          kečup, cibule v sezamové housce.
-        </p>
-        <div class="burger-info">
-          <div class="burger-allergens">Alergeny: <span>1, 3, 7</span></div>
-          <div class="burger-price">239 Kč</div>
-        </div>
+        <div class="burger-name">Burger s modrým sýrem</div>
+        <div class="burger-ing">Hovězí patty 180g, modrý sýr, rukola, vlašské ořechy, medová hořčice</div>
       </div>
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph gray-ph" style="background: linear-gradient(145deg, #d90429, #2b2d42);">
-        <div class="ph-icon">🍗</div>
-        <div class="ph-text">FOTO BURGERU</div>
-      </div>
+      <div class="burger-img-ph">FOTO</div>
       <div class="burger-body">
-        <div class="burger-name">Crispy Chicken</div>
-        <p class="burger-desc">
-          Křupavé kuřecí stehno, zelné kimchi slaw, chilli med,
-          domácí pickles, briošková houska.
-        </p>
-        <div class="burger-info">
-          <div class="burger-allergens">Alergeny: <span>1, 3, 7, 10</span></div>
-          <div class="burger-price">199 Kč</div>
-        </div>
+        <div class="burger-name">Spicy burger</div>
+        <div class="burger-ing">Hovězí patty 180g, jalapeño, chilli omáčka, pickles, červená cibule, cheddar</div>
       </div>
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph dark-ph" style="background: linear-gradient(145deg, #8d99ae, #2b2d42);">
-        <div class="ph-icon">🥓</div>
-        <div class="ph-text">FOTO BURGERU</div>
-      </div>
-      <div class="burger-badge" style="background: var(--gray);">Nový</div>
+      <div class="burger-img-ph">FOTO</div>
       <div class="burger-body">
-        <div class="burger-name">Bacon Royale</div>
-        <p class="burger-desc">
-          200 g hovězí placka, 3× slanina, gruyère, caramelizovaný česnek,
-          dijonská hořčice, briošková houska.
-        </p>
-        <div class="burger-info">
-          <div class="burger-allergens">Alergeny: <span>1, 3, 6, 7</span></div>
-          <div class="burger-price">225 Kč</div>
-        </div>
+        <div class="burger-name">Extra pálivej burger</div>
+        <div class="burger-ing">Hovězí patty 200g, ghost pepper omáčka, habanero, jalapeño, sriracha majonéza</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ── CENÍK ── -->
-<section id="cenik">
-  <p class="section-label" style="color:var(--gray)">Kompletní nabídka</p>
-  <h2 class="section-title light">Ceník</h2>
-  <p class="section-sub">Všechny ceny jsou uvedeny s DPH. K burgeru doporučujeme přidat přílohu.</p>
+<div class="divider"></div>
 
-  <div class="menu-grid">
+<!-- CENÍK -->
+<section id="ceník">
+  <div class="section-header">
+    <p class="section-eyebrow">Co nabízíme</p>
+    <h2 class="section-title">Ceník</h2>
+  </div>
+
+  <div class="cenik-grid">
+
+    <!-- LEVÝ SLOUPEC -->
     <div>
-      <div class="menu-category-title">🍔 Burgery</div>
-
-      <div class="menu-item featured">
-        <div class="menu-item-left">
-          <div class="item-name">Classic Bistro <span class="popular-badge">Nejoblíbenější</span></div>
-          <div class="item-desc">Hovězí, cheddar, BBQ, karamelizovaná cibulka</div>
-        </div>
-        <div class="item-price">189 Kč</div>
+      <div class="cenik-group">
+        <div class="cenik-group-title">Burgery</div>
+        <div class="cenik-item"><span class="cenik-name">Klasický burger</span><span class="cenik-price">179 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Sýrový burger</span><span class="cenik-price">189 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Barbecue burger</span><span class="cenik-price">199 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Burger s modrým sýrem</span><span class="cenik-price">199 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Spicy burger</span><span class="cenik-price">189 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Extra pálivej burger</span><span class="cenik-price">209 Kč</span></div>
       </div>
 
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Smoky Devil</div>
-          <div class="item-desc">Hovězí, jalapeños, slanina, chipotle</div>
-        </div>
-        <div class="item-price">215 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Green Garden</div>
-          <div class="item-desc">Rostlinná placka, avokádo, tahini</div>
-        </div>
-        <div class="item-price">195 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Double Cheese</div>
-          <div class="item-desc">2× hovězí, 2× cheddar, pickles</div>
-        </div>
-        <div class="item-price">239 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Crispy Chicken</div>
-          <div class="item-desc">Kuřecí stehno, kimchi, chilli med</div>
-        </div>
-        <div class="item-price">199 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Bacon Royale</div>
-          <div class="item-desc">Hovězí, 3× slanina, gruyère</div>
-        </div>
-        <div class="item-price">225 Kč</div>
-      </div>
-
-      <div class="menu-category-title" style="margin-top:2rem">🥤 Nápoje</div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Limonáda domácí</div>
-          <div class="item-desc">Citron, máta, med · 0,3 l</div>
-        </div>
-        <div class="item-price">59 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Craft pivo</div>
-          <div class="item-desc">Lokální pivovar · 0,5 l</div>
-        </div>
-        <div class="item-price">79 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Milkshake</div>
-          <div class="item-desc">Vanilla / Čokoláda / Jahoda · 0,4 l</div>
-        </div>
-        <div class="item-price">95 Kč</div>
+      <div class="cenik-group">
+        <div class="cenik-group-title">Nápoje</div>
+        <div class="cenik-item"><span class="cenik-name">Kola</span><span class="cenik-price">55 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Pivo</span><span class="cenik-price">65 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Voda</span><span class="cenik-price">40 Kč</span></div>
       </div>
     </div>
 
+    <!-- PRAVÝ SLOUPEC -->
     <div>
-      <div class="menu-category-title">🍟 Přílohy</div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Hranolky klasické</div>
-          <div class="item-desc">Křupavé, solené</div>
-        </div>
-        <div class="item-price">59 Kč</div>
+      <div class="cenik-group">
+        <div class="cenik-group-title">Přílohy</div>
+        <div class="cenik-item"><span class="cenik-name">Hranolky</span><span class="cenik-price">69 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Krokety</span><span class="cenik-price">69 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Salát</span><span class="cenik-price">59 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Batáty</span><span class="cenik-price">79 Kč</span></div>
       </div>
 
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Sweet potato fries</div>
-          <div class="item-desc">Sladká brambora, aioli</div>
-        </div>
-        <div class="item-price">75 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Cibulové kroužky</div>
-          <div class="item-desc">Ranch dip</div>
-        </div>
-        <div class="item-price">69 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Coleslaw</div>
-          <div class="item-desc">Zelný salát, majonéza</div>
-        </div>
-        <div class="item-price">49 Kč</div>
-      </div>
-
-      <div class="menu-category-title" style="margin-top:2rem">🍰 Dezerty</div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Cheesecake</div>
-          <div class="item-desc">Domácí, lesní ovoce</div>
-        </div>
-        <div class="item-price">89 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Brownies &amp; zmrzlina</div>
-          <div class="item-desc">Teplé brownie, vanilková zmrzlina</div>
-        </div>
-        <div class="item-price">99 Kč</div>
-      </div>
-
-      <div class="menu-category-title" style="margin-top:2rem">🥗 Saláty</div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Caesar salát</div>
-          <div class="item-desc">Kuřecí, parmazán, krutony</div>
-        </div>
-        <div class="item-price">149 Kč</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-left">
-          <div class="item-name">Rukola &amp; avokádo</div>
-          <div class="item-desc">Cherry rajčata, balzamiko</div>
-        </div>
-        <div class="item-price">139 Kč</div>
+      <div class="cenik-group">
+        <div class="cenik-group-title">Dezerty</div>
+        <div class="cenik-item"><span class="cenik-name">Cheesecake</span><span class="cenik-price">89 Kč</span></div>
+        <div class="cenik-item"><span class="cenik-name">Zmrzlina</span><span class="cenik-price">65 Kč</span></div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ── O NÁS ── -->
+<div class="divider"></div>
+
+<!-- O NÁS -->
 <section id="o-nas">
-  <div class="about-img-ph">
-    <div class="ph-icon">📸</div>
-    <div class="ph-text">FOTO INTERIÉRU / TÝMU</div>
-  </div>
-  <div class="about-content">
-    <p class="section-label">Náš příběh</p>
-    <h2 class="section-title">Vášeň pro<br>dobrý burger</h2>
-    <div class="about-stats">
-      <div class="stat">
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Let zkušeností</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">12</div>
-        <div class="stat-label">Receptů</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Čerstvé</div>
+  <div class="onas-inner">
+    <div class="onas-img">FOTO BISTRO</div>
+    <div class="onas-content">
+      <span class="onas-tag">Náš příběh</span>
+      <h2 class="onas-title">Vášeň pro<br>dobré burgery</h2>
+      <p class="onas-text">Burger Bistro Liberec vzniklo z jednoduché myšlenky: skvělý burger nemusí být komplikovaný. Stačí čerstvé lokální suroviny, poctivá příprava a kousek vášně.</p>
+      <p class="onas-text">Naše hovězí maso pochází od lokálních farmářů z Libereckého kraje. Housky pečeme každé ráno a omáčky připravujeme dle vlastních receptur. Žádné kompromisy.</p>
+      <div class="onas-stats">
+        <div class="stat">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Let zkušeností</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Druhů burgerů</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Čerstvé</div>
+        </div>
       </div>
     </div>
-    <p class="about-text">
-      Burger Bistro Liberec vzniklo z jednoduché myšlenky: skvělý burger nemusí být komplikovaný.
-      Stačí čerstvé lokální suroviny, poctivá příprava a kousek vášně.
-    </p>
-    <p class="about-text">
-      Naše hovězí maso pochází od lokálních farmářů z Libereckého kraje. Housky pečeme každé ráno
-      a omáčky připravujeme dle vlastních receptur. Žádné kompromisy.
-    </p>
-    <a href="#cenik" class="btn btn-primary">Zobrazit menu</a>
   </div>
 </section>
 
-<!-- ── TERMÍNY / OTEVÍRACÍ DOBY ── -->
+<div class="divider"></div>
+
+<!-- TERMÍNY -->
 <section id="terminy">
-  <p class="section-label" style="color:rgba(255,255,255,.6)">Kdy nás najdete</p>
-  <h2 class="section-title light">Otevírací<br>doba</h2>
-  <div class="hours-grid">
-    <div class="hours-card">
-      <div class="hours-day">Pondělí – Pátek</div>
-      <div class="hours-time">11:00 – 22:00</div>
+  <div class="section-header">
+    <p class="section-eyebrow">Kdy nás navštívit</p>
+    <h2 class="section-title">Otevírací doba</h2>
+  </div>
+
+  <div class="terminy-grid">
+    <div class="termin-card">
+      <div class="termin-day">Pondělí – Pátek</div>
+      <div class="termin-hours">11:00 – 22:00</div>
     </div>
-    <div class="hours-card">
-      <div class="hours-day">Sobota</div>
-      <div class="hours-time">11:00 – 23:00</div>
+    <div class="termin-card">
+      <div class="termin-day">Sobota</div>
+      <div class="termin-hours">11:00 – 23:00</div>
     </div>
-    <div class="hours-card">
-      <div class="hours-day">Neděle</div>
-      <div class="hours-time">12:00 – 21:00</div>
+    <div class="termin-card">
+      <div class="termin-day">Neděle</div>
+      <div class="termin-hours">12:00 – 21:00</div>
     </div>
-    <div class="hours-card">
-      <div class="hours-day">Svátky</div>
-      <div class="hours-closed">Dle aktuálního programu</div>
+    <div class="termin-card">
+      <div class="termin-day">Svátky</div>
+      <div class="termin-hours" style="font-size:1.1rem; color: var(--muted);">Dle aktuálního<br>programu</div>
     </div>
   </div>
 </section>
 
-<!-- ── MAPA ── -->
-<section id="mapa">
-  <div class="map-wrapper">
-    <div class="map-info">
-      <p class="section-label" style="color:var(--gray)">Kde nás najdete</p>
-      <h2 class="section-title light">Naše<br>adresa</h2>
-      <div class="map-address">
-        <div class="address-line">
-          <div class="address-icon">📍</div>
-          <div class="address-text">
-            <strong>Burger Bistro Liberec</strong>
-            Náměstí Dr. E. Beneše 1<br>460 01 Liberec 1
-          </div>
-        </div>
-        <div class="address-line">
-          <div class="address-icon">📞</div>
-          <div class="address-text">
-            <strong>Telefon</strong>
-            <a href="tel:+420777123456" style="color:var(--gray);text-decoration:none">+420 777 123 456</a>
-          </div>
-        </div>
-        <div class="address-line">
-          <div class="address-icon">✉️</div>
-          <div class="address-text">
-            <strong>E-mail</strong>
-            <a href="mailto:info@burgerbistroliberec.cz" style="color:var(--gray);text-decoration:none">info@burgerbistroliberec.cz</a>
-          </div>
-        </div>
-        <div class="address-line">
-          <div class="address-icon">🅿️</div>
-          <div class="address-text">
-            <strong>Parkování</strong>
-            Veřejné parkoviště 100 m od nás
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="map-iframe-wrapper">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.8!2d15.0567!3d50.7663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470936d8eef39a4f%3A0xd63b05b06c4f7bf4!2sN%C3%A1m%C4%9Bst%C3%AD%20Dr.%20E.%20Bene%C5%A1e%2C%20Liberec!5e0!3m2!1scs!2scz!4v1700000000000"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Mapa - Burger Bistro Liberec">
-      </iframe>
-    </div>
-  </div>
-</section>
+<div class="divider"></div>
 
-<!-- ── KONTAKT ── -->
+<!-- KONTAKT + MAPA -->
 <section id="kontakt">
-  <p class="section-label">Spojte se s námi</p>
-  <h2 class="section-title">Kontakt</h2>
-
-  <div class="kontakt-grid">
-    <div class="kontakt-card">
-      <div class="k-icon red">📞</div>
-      <div class="k-content">
-        <h3>Telefon</h3>
-        <a href="tel:+420777123456">+420 777 123 456</a>
+  <div class="kontakt-inner">
+    <div class="kontakt-info">
+      <h3 class="kontakt-heading">Kde nás<br>najdete</h3>
+      <div class="kontakt-item">
+        <span class="kontakt-label">Adresa</span>
+        <span class="kontakt-value">Burger Bistro Liberec<br>Náměstí Dr. E. Beneše 1<br>460 01 Liberec</span>
+      </div>
+      <div class="kontakt-item">
+        <span class="kontakt-label">Telefon</span>
+        <span class="kontakt-value"><a href="tel:+420777123456">+420 777 123 456</a></span>
+      </div>
+      <div class="kontakt-item">
+        <span class="kontakt-label">E-mail</span>
+        <span class="kontakt-value"><a href="mailto:info@burgerbistroliberec.cz">info@burgerbistroliberec.cz</a></span>
+      </div>
+      <div class="kontakt-item">
+        <span class="kontakt-label">Sociální sítě</span>
+        <span class="kontakt-value">
+          <a href="#">Instagram: @BurgerBistroLiberec</a><br>
+          <a href="#">Facebook: Burger Bistro Liberec</a>
+        </span>
       </div>
     </div>
-    <div class="kontakt-card">
-      <div class="k-icon dark">✉️</div>
-      <div class="k-content">
-        <h3>E-mail</h3>
-        <a href="mailto:info@burgerbistroliberec.cz">info@burgerbistroliberec.cz</a>
-      </div>
-    </div>
-    <div class="kontakt-card">
-      <div class="k-icon gray">📸</div>
-      <div class="k-content">
-        <h3>Instagram</h3>
-        <a href="#">@burgerbistroliberec</a>
-      </div>
-    </div>
-    <div class="kontakt-card">
-      <div class="k-icon red">👍</div>
-      <div class="k-content">
-        <h3>Facebook</h3>
-        <a href="#">Burger Bistro Liberec</a>
-      </div>
-    </div>
-    <div class="kontakt-form-link">
-      <div>
-        <h3>Rezervace &amp; dotazy</h3>
-        <p>Máte zájem o rezervaci stolu nebo speciální akci? Napište nám!</p>
-      </div>
-      <a href="formular.html" class="btn btn-primary">Přejít na formulář →</a>
-    </div>
+    <div class="mapa-ph">MAPA</div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">BURGER<span>BISTRO</span> LIBEREC</div>
-  <div class="footer-copy">© 2025 Burger Bistro Liberec · Všechna práva vyhrazena</div>
-  <div class="footer-social">
-    <a href="#" class="social-btn" aria-label="Instagram">📸</a>
-    <a href="#" class="social-btn" aria-label="Facebook">👍</a>
-    <a href="#" class="social-btn" aria-label="Google">⭐</a>
-  </div>
+  <div class="footer-logo">Burger <span>Bistro</span> Liberec</div>
+  <div class="footer-copy">© 2025 Burger Bistro Liberec. Všechna práva vyhrazena.</div>
+  <a href="#domov" class="btn-scroll-top" title="Nahoru">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+    </svg>
+  </a>
 </footer>
 
-<!-- ── SCROLL TOP ── -->
-<button class="scroll-top" id="scrollTop" aria-label="Nahoru" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
 <script>
-  // Hamburger menu
-  const ham = document.getElementById('hamburger');
-  const nav = document.getElementById('navLinks');
-  ham.addEventListener('click', () => {
-    nav.classList.toggle('open');
+  const toggle = document.getElementById("navToggle");
+  const links  = document.getElementById("navLinks");
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("open");
+    links.classList.toggle("open");
   });
-
-  // Close nav on link click
-  nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => nav.classList.remove('open'));
-  });
-
-  // Scroll top button
-  const scrollBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => {
-    scrollBtn.classList.toggle('visible', window.scrollY > 400);
-  });
-
-  // Nav active highlight on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--white)' : '';
+  links.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      toggle.classList.remove("open");
+      links.classList.remove("open");
     });
   });
 </script>
