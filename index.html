@@ -175,30 +175,12 @@
       align-items: center;
       justify-content: center;
     }
-    .hero-img-inner {
+    .hero-img img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      display: block;
       min-height: 500px;
-      background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 3px;
-      color: rgba(255,255,255,0.08);
-    }
-    .hero-img-inner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 10px,
-        rgba(217,48,47,0.03) 10px,
-        rgba(217,48,47,0.03) 20px
-      );
     }
 
     /* ── SECTIONS COMMON ── */
@@ -250,14 +232,20 @@
 
     .burger-img-ph {
       height: 200px;
-      background: linear-gradient(160deg, #333 0%, #222 100%);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
-      color: rgba(255,255,255,0.06);
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 2px;
+    }
+    .burger-img-ph img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .burger-card:hover .burger-img-ph img {
+      transform: scale(1.07);
     }
 
     .burger-body { padding: 20px; }
@@ -338,15 +326,15 @@
       background: var(--charcoal);
       border-radius: 6px;
       min-height: 440px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
-      color: rgba(255,255,255,0.06);
-      position: relative;
       overflow: hidden;
+      position: relative;
+    }
+    .onas-img img {
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+      object-fit: cover;
+      display: block;
     }
     .onas-img::after {
       content: '';
@@ -694,7 +682,11 @@
     </div>
   </div>
   <div class="hero-img">
-    <div class="hero-img-inner">FOTO BURGERY</div>
+    <img
+      src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&auto=format&fit=crop"
+      alt="Burger Bistro – poctivé burgery"
+      loading="eager"
+    />
   </div>
 </section>
 
@@ -710,7 +702,13 @@
   <div class="burgery-grid">
 
     <div class="burger-card">
-      <div class="burger-img-ph">FOTO</div>
+      <div class="burger-img-ph">
+        <img
+          src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&auto=format&fit=crop"
+          alt="Klasický burger"
+          loading="lazy"
+        />
+      </div>
       <div class="burger-body">
         <div class="burger-name">Klasický burger</div>
         <div class="burger-ing">Hovězí patty 180g, ledový salát, rajče, červená cibule, hořčice, ketchup</div>
@@ -718,7 +716,13 @@
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph">FOTO</div>
+      <div class="burger-img-ph">
+        <img
+          src="https://images.unsplash.com/photo-1596956470007-2bf6095e7e16?w=600&auto=format&fit=crop"
+          alt="Sýrový burger"
+          loading="lazy"
+        />
+      </div>
       <div class="burger-body">
         <div class="burger-name">Sýrový burger</div>
         <div class="burger-ing">Hovězí patty 180g, dvojitý cheddar, karamelizovaná cibule, domácí majonéza</div>
@@ -726,7 +730,13 @@
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph">FOTO</div>
+      <div class="burger-img-ph">
+        <img
+          src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&auto=format&fit=crop"
+          alt="Barbecue burger"
+          loading="lazy"
+        />
+      </div>
       <div class="burger-body">
         <div class="burger-name">Barbecue burger</div>
         <div class="burger-ing">Hovězí patty 200g, slanina, cibulové kroužky, BBQ omáčka, cheddar</div>
@@ -734,7 +744,13 @@
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph">FOTO</div>
+      <div class="burger-img-ph">
+        <img
+          src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=600&auto=format&fit=crop"
+          alt="Burger s modrým sýrem"
+          loading="lazy"
+        />
+      </div>
       <div class="burger-body">
         <div class="burger-name">Burger s modrým sýrem</div>
         <div class="burger-ing">Hovězí patty 180g, modrý sýr, rukola, vlašské ořechy, medová hořčice</div>
@@ -742,7 +758,13 @@
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph">FOTO</div>
+      <div class="burger-img-ph">
+        <img
+          src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600&auto=format&fit=crop"
+          alt="Spicy burger"
+          loading="lazy"
+        />
+      </div>
       <div class="burger-body">
         <div class="burger-name">Spicy burger</div>
         <div class="burger-ing">Hovězí patty 180g, jalapeño, chilli omáčka, pickles, červená cibule, cheddar</div>
@@ -750,7 +772,13 @@
     </div>
 
     <div class="burger-card">
-      <div class="burger-img-ph">FOTO</div>
+      <div class="burger-img-ph">
+        <img
+          src="https://images.unsplash.com/photo-1582196016295-f8c8bd4b3a99?w=600&auto=format&fit=crop"
+          alt="Extra pálivej burger"
+          loading="lazy"
+        />
+      </div>
       <div class="burger-body">
         <div class="burger-name">Extra pálivej burger</div>
         <div class="burger-ing">Hovězí patty 200g, ghost pepper omáčka, habanero, jalapeño, sriracha majonéza</div>
@@ -816,7 +844,13 @@
 <!-- O NÁS -->
 <section id="o-nas">
   <div class="onas-inner">
-    <div class="onas-img">FOTO BISTRO</div>
+    <div class="onas-img">
+      <img
+        src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop"
+        alt="Interiér Burger Bistro Liberec"
+        loading="lazy"
+      />
+    </div>
     <div class="onas-content">
       <span class="onas-tag">Náš příběh</span>
       <h2 class="onas-title">Vášeň pro<br>dobré burgery</h2>
@@ -896,7 +930,18 @@
         </span>
       </div>
     </div>
-    <div class="mapa-ph">MAPA</div>
+    <div class="mapa-ph">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2549.9!2d15.0543!3d50.7671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470937a817c5a879%3A0xa4df71f3b0a92a3d!2sN%C3%A1m%C4%9Bst%C3%AD%20Dr.%20Edvarda%20Bene%C5%A1e%2C%20Liberec!5e0!3m2!1scs!2scz!4v1700000000000"
+        width="100%"
+        height="100%"
+        style="border:0; display:block; min-height:480px; filter: invert(90%) hue-rotate(180deg) saturate(0.5);"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa – Burger Bistro Liberec"
+      ></iframe>
+    </div>
   </div>
 </section>
 
@@ -926,4 +971,4 @@
   });
 </script>
 </body>
-</html>
+</html> 
