@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burgery | Burger Bistro Liberec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="component.js" defer></script>
+</head>
+<body data-page="burgery" id="top">
+  <header class="site-header">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="index.html" class="nav__logo">Burger <span class="nav__logo-accent">Bistro</span> Liberec</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Otevřít menu">
+        <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span class="nav__toggle-line"></span>
+      </button>
+      <menu class="nav__menu" id="site-menu">
+        <li><a class="nav__link" href="index.html">Domov</a></li>
+        <li><a class="nav__link nav__link--active" href="burgery.html">Burgery</a></li>
+        <li><a class="nav__link" href="cenik.html">Ceník</a></li>
+        <li><a class="nav__link" href="onas.html">O nás</a></li>
+        <li><a class="nav__link" href="kontakt.html">Kontakt</a></li>
+        <li><a class="nav__link btn-booking" href="kontakt.html#kontakt">Rezervace</a></li>
+      </menu>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-dark" id="burgery">
+      <div class="section-wrap">
+        <header class="section-head">
+          <p class="section-head__eyebrow">Naše speciality</p>
+          <h1 class="section-head__title">Burgery</h1>
+        </header>
+
+        <div class="grid-burgers">
+          <article class="burger-card">
+            <div class="burger-card__image"><img src="img/burger-klasik.jpg" alt="Klasický burger" width="1200" height="800" loading="lazy" /></div>
+            <div class="burger-card__body"><h2 class="burger-card__name">Klasický burger</h2><p class="burger-card__desc">Hovězí patty 180 g, salát, rajče, červená cibule, hořčice, ketchup.</p><span class="burger-card__price">179 Kč</span></div>
+          </article>
+          <article class="burger-card">
+            <div class="burger-card__image"><img src="img/burger-syr.jpg" alt="Sýrový burger" width="1200" height="800" loading="lazy" /></div>
+            <div class="burger-card__body"><h2 class="burger-card__name">Sýrový burger</h2><p class="burger-card__desc">Dvojitý cheddar, karamelizovaná cibule a domácí majonéza.</p><span class="burger-card__price">189 Kč</span></div>
+          </article>
+          <article class="burger-card">
+            <div class="burger-card__image"><img src="img/burger-bbq.jpg" alt="Barbecue burger" width="1200" height="800" loading="lazy" /></div>
+            <div class="burger-card__body"><h2 class="burger-card__name">Barbecue burger</h2><p class="burger-card__desc">Hovězí patty 200 g, slanina, cibulové kroužky, BBQ omáčka.</p><span class="burger-card__price">199 Kč</span></div>
+          </article>
+          <article class="burger-card">
+            <div class="burger-card__image"><img src="img/burger-modry-syr.jpg" alt="Burger s modrým sýrem" width="1200" height="800" loading="lazy" /></div>
+            <div class="burger-card__body"><h2 class="burger-card__name">Burger s modrým sýrem</h2><p class="burger-card__desc">Rukola, modrý sýr, vlašské ořechy a medová hořčice.</p><span class="burger-card__price">199 Kč</span></div>
+          </article>
+          <article class="burger-card">
+            <div class="burger-card__image"><img src="img/burger-spicy.jpg" alt="Spicy burger" width="1200" height="800" loading="lazy" /></div>
+            <div class="burger-card__body"><h2 class="burger-card__name">Spicy burger</h2><p class="burger-card__desc">Jalapeño, chilli omáčka, pickles a cheddar.</p><span class="burger-card__price">189 Kč</span></div>
+          </article>
+          <article class="burger-card">
+            <div class="burger-card__image"><img src="img/burger-extreme.jpg" alt="Extra pálivý burger" width="1200" height="800" loading="lazy" /></div>
+            <div class="burger-card__body"><h2 class="burger-card__name">Extra pálivý burger</h2><p class="burger-card__desc">Ghost pepper omáčka, habanero a sriracha majonéza.</p><span class="burger-card__price">209 Kč</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="gallery section-black" id="galerie">
+      <div class="section-wrap">
+        <header class="section-head">
+          <p class="section-head__eyebrow">Galerie</p>
+          <h2 class="section-head__title">Bistro v obrazech</h2>
+        </header>
+        <div class="gallery__track" aria-label="Galerie Burger Bistro Liberec">
+          <figure class="gallery__item"><img src="img/hero-burger.jpg" alt="Burger na dřevěném prkénku" width="1600" height="1067" loading="lazy" /></figure>
+          <figure class="gallery__item"><img src="img/interier-bistro.jpg" alt="Interiér Burger Bistro" width="1400" height="933" loading="lazy" /></figure>
+          <figure class="gallery__item"><img src="img/burger-bbq.jpg" alt="BBQ burger detail" width="1200" height="800" loading="lazy" /></figure>
+          <figure class="gallery__item"><img src="img/burger-syr.jpg" alt="Sýrový burger detail" width="1200" height="800" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="index.html" class="footer__logo">Burger <span class="footer__logo-accent">Bistro</span> Liberec</a>
+    <p class="footer__copy">© 2026 Burger Bistro Liberec. Všechna práva vyhrazena.</p>
+    <a href="#top" class="scroll-top" title="Nahoru" aria-label="Nahoru">↑</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O nás | Burger Bistro Liberec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="component.js" defer></script>
+</head>
+<body data-page="onas" id="top">
+  <header class="site-header">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="index.html" class="nav__logo">Burger <span class="nav__logo-accent">Bistro</span> Liberec</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Otevřít menu">
+        <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span class="nav__toggle-line"></span>
+      </button>
+      <menu class="nav__menu" id="site-menu">
+        <li><a class="nav__link" href="index.html">Domov</a></li>
+        <li><a class="nav__link" href="burgery.html">Burgery</a></li>
+        <li><a class="nav__link" href="cenik.html">Ceník</a></li>
+        <li><a class="nav__link nav__link--active" href="onas.html">O nás</a></li>
+        <li><a class="nav__link" href="kontakt.html">Kontakt</a></li>
+        <li><a class="nav__link btn-booking" href="kontakt.html#kontakt">Rezervace</a></li>
+      </menu>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-dark" id="onas">
+      <div class="section-wrap about">
+        <figure class="about__image">
+          <img src="img/interier-bistro.jpg" alt="Interiér restaurace Burger Bistro Liberec" width="1400" height="933" loading="lazy" />
+        </figure>
+        <div>
+          <p class="about__tag">Náš příběh</p>
+          <h1 class="about__title">Vášeň pro dobré burgery</h1>
+          <p class="about__text">Burger Bistro Liberec vzniklo z jednoduché myšlenky: skvělý burger nemusí být komplikovaný.</p>
+          <p class="about__text">Používáme čerstvé lokální suroviny, pečeme vlastní housky a omáčky připravujeme každý den.</p>
+          <div class="stats">
+            <div><p class="stats__value">5+</p><p class="stats__label">let zkušeností</p></div>
+            <div><p class="stats__value">6</p><p class="stats__label">druhů burgerů</p></div>
+            <div><p class="stats__value">100%</p><p class="stats__label">čerstvé suroviny</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section-black" id="terminy">
+      <div class="section-wrap">
+        <header class="section-head">
+          <h2 class="section-head__title">Otevírací doba</h2>
+        </header>
+        <div class="hours-grid">
+          <article class="hours-card"><h3 class="hours-card__day">Pondělí až pátek</h3><p class="hours-card__time">11:00 - 22:00</p></article>
+          <article class="hours-card"><h3 class="hours-card__day">Sobota</h3><p class="hours-card__time">11:00 - 23:00</p></article>
+          <article class="hours-card"><h3 class="hours-card__day">Neděle</h3><p class="hours-card__time">12:00 - 21:00</p></article>
+          <article class="hours-card"><h3 class="hours-card__day">Svátky</h3><p class="hours-card__note">Dle aktuálního programu</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="index.html" class="footer__logo">Burger <span class="footer__logo-accent">Bistro</span> Liberec</a>
+    <p class="footer__copy">© 2026 Burger Bistro Liberec. Všechna práva vyhrazena.</p>
+    <a href="#top" class="scroll-top" title="Nahoru" aria-label="Nahoru">↑</a>
+  </footer>
+</body>
+</html>

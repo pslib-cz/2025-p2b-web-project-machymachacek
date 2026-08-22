@@ -1,0 +1,629 @@
+﻿@layer base, layout, components, utilities;
+
+@layer base {
+  :root {
+    --color-bg: #111111;
+    --color-panel: #1a1a1a;
+    --color-card: #2b2b2b;
+    --color-accent: #d9302f;
+    --color-accent-dark: #b52120;
+    --color-text: #f0ece6;
+    --color-muted: #a09080;
+    --color-white: #ffffff;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --radius-2: 0.25rem;
+    --radius-3: 0.5rem;
+    --header-h: 3.75rem;
+  }
+
+  html {
+    font-family: "Barlow", sans-serif;
+    font-size: 100%;
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding-top: var(--header-h);
+  }
+
+  section {
+    scroll-margin-top: calc(var(--header-h) + 0.5rem);
+  }
+}
+
+@layer layout {
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1000;
+    height: var(--header-h);
+    background: rgba(17, 17, 17, 0.97);
+    border-bottom: 2px solid var(--color-accent);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding-inline: var(--space-4);
+    max-width: 90rem;
+    margin-inline: auto;
+  }
+
+  .page-domov .hero {
+    min-height: calc(100vh - var(--header-h));
+    display: grid;
+    background: var(--color-bg);
+  }
+
+  .section-wrap {
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+  }
+
+  .grid-burgers {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+    padding-block: var(--space-6) var(--space-12);
+  }
+
+  .grid-price {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    padding-block: var(--space-6) var(--space-12);
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    padding-block: var(--space-12);
+  }
+
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    margin-top: var(--space-6);
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 32rem;
+  }
+
+  .footer {
+    border-top: 2px solid var(--color-card);
+    padding: var(--space-6) var(--space-4);
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 48em) {
+    :root {
+      --header-h: 4.25rem;
+    }
+
+    .nav {
+      padding-inline: var(--space-8);
+      grid-template-columns: auto 1fr;
+      gap: var(--space-8);
+    }
+
+    .grid-burgers {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-6);
+      padding-inline: var(--space-6);
+    }
+
+    .grid-price {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-12);
+      padding-inline: var(--space-6);
+    }
+
+    .hours-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer {
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding-inline: var(--space-8);
+    }
+  }
+
+  @media (min-width: 64em) {
+    .page-domov .hero {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero__content {
+      padding-inline: var(--space-16) var(--space-12);
+      padding-block: var(--space-16);
+    }
+
+    .grid-burgers {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      padding-inline: var(--space-8);
+    }
+
+    .about {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+      align-items: center;
+      padding-inline: var(--space-8);
+    }
+
+    .hours-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-inline: var(--space-8);
+    }
+
+    .contact {
+      grid-template-columns: 18rem 1fr;
+    }
+
+    .contact__panel {
+      border-right: 2px solid var(--color-accent);
+    }
+  }
+}
+
+@layer components {
+  .nav__logo,
+  .footer__logo {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.1em;
+    color: var(--color-white);
+    line-height: 1;
+  }
+
+  .nav__logo {
+    font-size: 1.65rem;
+    display: inline-block;
+  }
+
+  .nav__logo-accent,
+  .footer__logo-accent {
+    color: var(--color-accent);
+  }
+
+  .nav__toggle {
+    border: 0;
+    background: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: inline-grid;
+    place-content: center;
+    gap: 0.25rem;
+    cursor: pointer;
+  }
+
+  .nav__toggle-line {
+    width: 1.5rem;
+    height: 2px;
+    background: var(--color-white);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav__menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: var(--header-h);
+    background: rgba(17, 17, 17, 0.98);
+    border-bottom: 2px solid var(--color-accent);
+    display: none;
+    padding: var(--space-4);
+    gap: var(--space-2);
+  }
+
+  .nav__menu.is-open {
+    display: grid;
+  }
+
+  .nav__link {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    border-radius: var(--radius-2);
+    font-size: 0.85rem;
+  }
+
+  .nav__link:hover,
+  .nav__link:focus-visible,
+  .nav__link--active {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .nav__link--active {
+    color: var(--color-accent);
+  }
+
+  .btn-booking {
+    display: inline-block;
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-weight: 700;
+  }
+
+  .btn-booking:hover,
+  .btn-booking:focus-visible {
+    background: var(--color-accent-dark);
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .hero__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3rem;
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__title-accent {
+    color: var(--color-accent);
+    font-style: normal;
+  }
+
+  .hero__text {
+    color: var(--color-muted);
+    max-width: 30rem;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .btn {
+    display: inline-block;
+    border-radius: var(--radius-2);
+    padding: 0.9rem 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  .btn--primary {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  .btn--primary:hover,
+  .btn--primary:focus-visible {
+    background: var(--color-accent-dark);
+  }
+
+  .btn--secondary {
+    border: 2px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .btn--secondary:hover,
+  .btn--secondary:focus-visible {
+    border-color: var(--color-accent);
+  }
+
+  .hero__media,
+  .about__image {
+    overflow: clip;
+  }
+
+  .hero__media img,
+  .about__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .section-head {
+    text-align: center;
+    padding-top: var(--space-12);
+  }
+
+  .section-head__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.74rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+
+  .section-head__title {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.08em;
+    font-size: 2.2rem;
+  }
+
+  .burger-card {
+    background: var(--color-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-3);
+    overflow: clip;
+    transition: transform 0.2s ease;
+  }
+
+  .burger-card:hover,
+  .burger-card:focus-within {
+    transform: translateY(-0.25rem);
+  }
+
+  .burger-card__image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .burger-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .burger-card__body {
+    padding: var(--space-4);
+  }
+
+  .burger-card__name {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.06em;
+    font-size: 1.35rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .burger-card__desc {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+
+  .burger-card__price {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  .price-group__title {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--color-accent);
+    letter-spacing: 0.08em;
+    font-size: 1.25rem;
+    margin-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(217, 48, 47, 0.4);
+    padding-bottom: var(--space-2);
+  }
+
+  .price-list__item {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding-block: 0.65rem;
+  }
+
+  .price-list__value {
+    color: var(--color-accent);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .about__tag {
+    display: inline-block;
+    color: var(--color-accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+  }
+
+  .about__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.35rem;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-6);
+  }
+
+  .about__text {
+    color: var(--color-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .stats {
+    display: flex;
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+  }
+
+  .stats__value {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--color-accent);
+    font-size: 2rem;
+  }
+
+  .stats__label {
+    color: var(--color-muted);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hours-card {
+    background: var(--color-card);
+    padding: var(--space-6) var(--space-4);
+    border-top: 3px solid transparent;
+    text-align: center;
+  }
+
+  .hours-card:hover {
+    border-top-color: var(--color-accent);
+  }
+
+  .hours-card__day {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .hours-card__time {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.08em;
+    font-size: 1.8rem;
+  }
+
+  .hours-card__note {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+
+  .contact__panel {
+    background: var(--color-bg);
+    padding: var(--space-8) var(--space-4);
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .contact__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+  }
+
+  .contact__label {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    font-size: 0.72rem;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact__value {
+    color: var(--color-text);
+  }
+
+  .contact__map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    min-height: 24rem;
+    filter: invert(90%) hue-rotate(180deg) saturate(0.5);
+  }
+
+  .gallery {
+    padding-bottom: var(--space-12);
+  }
+
+  .gallery__track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .gallery__item {
+    border-radius: var(--radius-3);
+    overflow: clip;
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .footer__copy {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+
+  .scroll-top {
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: var(--radius-2);
+    background: var(--color-accent);
+    display: inline-grid;
+    place-content: center;
+  }
+
+  .scroll-top:hover,
+  .scroll-top:focus-visible {
+    background: var(--color-accent-dark);
+  }
+
+  @media (min-width: 48em) {
+    .nav__toggle {
+      display: none;
+    }
+
+    .nav__menu {
+      position: static;
+      background: none;
+      border: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0;
+      margin-left: auto;
+      gap: var(--space-2);
+    }
+
+    .hero__title {
+      font-size: 4.1rem;
+    }
+
+    .section-head__title {
+      font-size: 2.8rem;
+    }
+
+    .gallery__track {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}
+
+@layer utilities {
+  .section-dark {
+    background: var(--color-panel);
+  }
+
+  .section-black {
+    background: var(--color-bg);
+  }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    opacity: 0.4;
+  }
+}

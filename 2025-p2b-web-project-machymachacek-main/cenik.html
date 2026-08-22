@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ceník | Burger Bistro Liberec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="component.js" defer></script>
+</head>
+<body data-page="cenik" id="top">
+  <header class="site-header">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="index.html" class="nav__logo">Burger <span class="nav__logo-accent">Bistro</span> Liberec</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Otevřít menu">
+        <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span class="nav__toggle-line"></span>
+      </button>
+      <menu class="nav__menu" id="site-menu">
+        <li><a class="nav__link" href="index.html">Domov</a></li>
+        <li><a class="nav__link" href="burgery.html">Burgery</a></li>
+        <li><a class="nav__link nav__link--active" href="cenik.html">Ceník</a></li>
+        <li><a class="nav__link" href="onas.html">O nás</a></li>
+        <li><a class="nav__link" href="kontakt.html">Kontakt</a></li>
+        <li><a class="nav__link btn-booking" href="kontakt.html#kontakt">Rezervace</a></li>
+      </menu>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-black" id="cenik">
+      <div class="section-wrap">
+        <header class="section-head">
+          <h1 class="section-head__title">Ceník</h1>
+        </header>
+        <div class="grid-price">
+          <section class="price-group">
+            <h2 class="price-group__title">Burgery</h2>
+            <div class="price-list__item"><span>Klasický burger</span><span class="price-list__value">179 Kč</span></div>
+            <div class="price-list__item"><span>Sýrový burger</span><span class="price-list__value">189 Kč</span></div>
+            <div class="price-list__item"><span>Barbecue burger</span><span class="price-list__value">199 Kč</span></div>
+            <div class="price-list__item"><span>Burger s modrým sýrem</span><span class="price-list__value">199 Kč</span></div>
+            <div class="price-list__item"><span>Spicy burger</span><span class="price-list__value">189 Kč</span></div>
+            <div class="price-list__item"><span>Extra pálivý burger</span><span class="price-list__value">209 Kč</span></div>
+          </section>
+          <section class="price-group">
+            <h2 class="price-group__title">Nápoje a přílohy</h2>
+            <div class="price-list__item"><span>Kola</span><span class="price-list__value">55 Kč</span></div>
+            <div class="price-list__item"><span>Pivo</span><span class="price-list__value">65 Kč</span></div>
+            <div class="price-list__item"><span>Voda</span><span class="price-list__value">40 Kč</span></div>
+            <div class="price-list__item"><span>Hranolky</span><span class="price-list__value">69 Kč</span></div>
+            <div class="price-list__item"><span>Batáty</span><span class="price-list__value">79 Kč</span></div>
+            <div class="price-list__item"><span>Cheesecake</span><span class="price-list__value">89 Kč</span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="index.html" class="footer__logo">Burger <span class="footer__logo-accent">Bistro</span> Liberec</a>
+    <p class="footer__copy">© 2026 Burger Bistro Liberec. Všechna práva vyhrazena.</p>
+    <a href="#top" class="scroll-top" title="Nahoru" aria-label="Nahoru">↑</a>
+  </footer>
+</body>
+</html>
